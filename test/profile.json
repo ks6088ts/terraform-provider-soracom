@@ -1,0 +1,7 @@
+{
+  "sandbox": false,
+  "coverageType": "jp",
+  "authKeyId": "keyId-*",
+  "authKey": "secret-*",
+  "registerPaymentMethod": false
+}
