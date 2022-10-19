@@ -1,0 +1,40 @@
+name: test
+
+on: [push]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest]
+        go-version: [1.19.x]
+        terraform-version: [1.3.2]
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # to retrieve git tags
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: ${{ matrix.go-version }}
+      - name: Generate SORACOM Profile
+        # register the outputs `base64 ~/.soracom/default.json` as a repository secret named SORACOM_PROFILE_JSON_BASE64_ENCODED
+        env:
+          SORACOM_PROFILE_JSON_BASE64_ENCODED: ${{ secrets.SORACOM_PROFILE_JSON_BASE64_ENCODED }}
+        run: |
+          mkdir -p ~/.soracom
+          echo -n $SORACOM_PROFILE_JSON_BASE64_ENCODED | base64 --decode > ~/.soracom/default.json
+      - name: Run CI test
+        run: make ci-test GOPATH=/home/runner/go
+        env:
+          SORACOM_AUTH_KEY: ${{ secrets.SORACOM_AUTH_KEY }}
+          SORACOM_AUTH_KEY_ID: ${{ secrets.SORACOM_AUTH_KEY_ID }}
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: ${{ matrix.terraform-version }}
+      # FIXME: disable for now
+      # - name: Run CI test
+      #   run: make -f terraform.mk ci-test
