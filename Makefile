@@ -41,4 +41,4 @@ build: ## build applications
 	$(GOBUILD) -ldflags=$(LDFLAGS) -o $(PROVIDER_FILE) .
 
 .PHONY: ci-test
-ci-test: lint test build ## ci test
+ci-test: install-deps-dev lint test build ## ci test
