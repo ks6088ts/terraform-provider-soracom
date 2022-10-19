@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     soracom = {
-      source = "ks6088ts.github.io/ks6088ts/soracom"
+      source = "ks6088ts/soracom"
     }
   }
 }
