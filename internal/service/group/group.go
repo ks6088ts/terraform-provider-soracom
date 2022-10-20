@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
-	soracom "github.com/ks6088ts/soracom-sdk-go/openapiclient"
+	soracom "github.com/ks6088ts/soracom-sdk-go/generated/api"
 	sdk "github.com/soracom/soracom-sdk-go"
 
 	"github.com/ks6088ts/terraform-provider-soracom/internal/conns"

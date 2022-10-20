@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 
-	soracom "github.com/ks6088ts/soracom-sdk-go/openapiclient"
+	soracom "github.com/ks6088ts/soracom-sdk-go/generated/api"
 	"github.com/ks6088ts/terraform-provider-soracom/internal"
 )
 
