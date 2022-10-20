@@ -6,8 +6,11 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strconv"
+	"time"
 
 	soracom "github.com/ks6088ts/soracom-sdk-go/generated/api"
+	"github.com/ks6088ts/soracom-sdk-go/generated/sandbox"
 	"github.com/ks6088ts/terraform-provider-soracom/internal"
 )
 
@@ -87,6 +90,40 @@ func (c *SoracomClient) GetContext(ctx context.Context) context.Context {
 	return context.WithValue(authCtx, soracom.ContextServerIndex, c.serverIndex)
 }
 
+func (c *Config) sandboxClient(p *profile) (interface{}, error) {
+	randStr := strconv.FormatInt(time.Now().UnixNano(), 10)
+	sandboxInitRequest := *sandbox.NewSandboxInitRequest(*p.AuthKey, *p.AuthKeyId, fmt.Sprintf("sdk-test+%s@soracom.jp", randStr), fmt.Sprintf("Password%s", randStr))
+	sandboxInitRequest.CoverageTypes = append(sandboxInitRequest.CoverageTypes, "g", "jp")
+	configuration := sandbox.NewConfiguration()
+	client := sandbox.NewAPIClient(configuration)
+	resp, r, err := client.OperatorApi.SandboxInitializeOperator(context.Background()).SandboxInitRequest(sandboxInitRequest).Execute()
+	if err != nil {
+		return nil, err
+	}
+	if r.StatusCode != 201 {
+		return nil, fmt.Errorf("Invalid HTTP response: %v", r.StatusCode)
+	}
+
+	soracomConfiguration := soracom.NewConfiguration()
+	// fixme: adhoc impl to overwrite endpoint url
+	soracomConfiguration.Servers = soracom.ServerConfigurations{
+		soracom.ServerConfiguration{
+			URL: sandbox.NewConfiguration().Servers[0].URL, // fixme: verify index access for safety
+		},
+	}
+
+	return &SoracomClient{
+		Client: soracom.NewAPIClient(soracomConfiguration),
+		AuthResponse: &soracom.AuthResponse{
+			ApiKey:     resp.ApiKey,
+			Token:      resp.Token,
+			OperatorId: resp.OperatorId,
+			UserName:   nil,
+		},
+		serverIndex: 0,
+	}, nil
+}
+
 func (c *Config) soracomClient(p *profile) (interface{}, error) {
 	client := soracom.NewAPIClient(soracom.NewConfiguration())
 
@@ -122,7 +159,7 @@ func (c *Config) Client() (interface{}, error) {
 		return nil, err
 	}
 	if profile.Sandbox {
-		return nil, fmt.Errorf("Sandbox is not supported.")
+		return c.sandboxClient(profile)
 	}
 	return c.soracomClient(profile)
 }
