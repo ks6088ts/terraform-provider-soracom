@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/ks6088ts/terraform-provider-soracom/internal/conns"
 
-	soracom "github.com/ks6088ts/soracom-sdk-go/openapiclient"
+	soracom "github.com/ks6088ts/soracom-sdk-go/generated/api"
 )
 
 func ResourceConfigurationGroup() *schema.Resource {
