@@ -35,6 +35,5 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: ${{ matrix.terraform-version }}
-      # FIXME: disable for now
-      # - name: Run CI test
-      #   run: make -f terraform.mk ci-test
+      - name: Run CI tests for examples/docs
+        run: make -f terraform.mk ci-test
