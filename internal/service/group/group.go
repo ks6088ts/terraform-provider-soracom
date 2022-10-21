@@ -28,6 +28,7 @@ func ResourceGroup() *schema.Resource {
 					Type:     schema.TypeString,
 					Required: true,
 				},
+				Description: "Tags for group to be created.",
 			},
 		},
 	}

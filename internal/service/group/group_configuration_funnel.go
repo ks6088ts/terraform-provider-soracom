@@ -19,12 +19,14 @@ func ResourceGroupConfigurationFunnel() *schema.Resource {
 		Importer:      nil, // fixme: impl
 		Schema: map[string]*schema.Schema{
 			"group_id": {
-				Type:     schema.TypeString,
-				Required: true,
+				Type:        schema.TypeString,
+				Required:    true,
+				Description: "Target group.",
 			},
 			"enabled": {
-				Type:     schema.TypeBool,
-				Required: true,
+				Type:        schema.TypeBool,
+				Required:    true,
+				Description: "Flag for the configuration status.",
 			},
 			"destination": {
 				Type:     schema.TypeList,
@@ -33,31 +35,38 @@ func ResourceGroupConfigurationFunnel() *schema.Resource {
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"provider": {
-							Type:     schema.TypeString,
-							Required: true,
+							Type:        schema.TypeString,
+							Required:    true,
+							Description: "provider",
 						},
 						"service": {
-							Type:     schema.TypeString,
-							Required: true,
+							Type:        schema.TypeString,
+							Required:    true,
+							Description: "service",
 						},
 						"resource_url": {
-							Type:     schema.TypeString,
-							Required: true,
+							Type:        schema.TypeString,
+							Required:    true,
+							Description: "resource_url",
 						},
 					},
 				},
+				Description: "destination",
 			},
 			"credentials_id": {
-				Type:     schema.TypeString,
-				Required: true,
+				Type:        schema.TypeString,
+				Required:    true,
+				Description: "credentials_id",
 			},
 			"content_type": {
-				Type:     schema.TypeString,
-				Required: true,
+				Type:        schema.TypeString,
+				Required:    true,
+				Description: "content_type",
 			},
 			"add_sim_id": {
-				Type:     schema.TypeBool,
-				Optional: true,
+				Type:        schema.TypeBool,
+				Optional:    true,
+				Description: "add_sim_id",
 			},
 		},
 	}
