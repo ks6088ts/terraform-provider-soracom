@@ -17,7 +17,7 @@ description: |-
 
 ### Required
 
-- **tags** (Map of String)
+- **tags** (Map of String) Tags for group to be created.
 
 ### Optional
 
