@@ -14,7 +14,7 @@ Documentation is available on the Terraform website: https://registry.terraform.
 
 1. See [SORACOM CLI Getting Started Guide](https://developers.soracom.io/en/start/soracom/soracom-cli-guide/) to create configuration profiles for SORACOM CLI. By default, the SORACOM CLI configuration file will be stored in `~/.soracom/myprofile.json` on macOS/Linux or `C:\Users\<username>\.soracom\myprofile.json` on Windows.
 
-2. Create following HCL file named as `main.tf`
+2. Create following usage example.
 
 ```hcl
 # Specify the version of the SORACOM Provider to use
@@ -42,7 +42,7 @@ resource "soracom_group" "group" {
 }
 ```
 
-3. run the following commands to create/delete resources
+3. run the following commands to manage resources
 
 ```bash
 # Initialize a new or existing Terraform working directory
@@ -81,13 +81,14 @@ soracom groups list
 
 ### Prerequisites
 
-- [Go](https://golang.org/)
+- [Go](https://golang.org/) 1.19+
 - [Git](https://git-scm.com/)
-- [jq](https://stedolan.github.io/jq/)
 - [Terraform](https://developer.hashicorp.com/terraform/downloads)
 - [GNU Make](https://www.gnu.org/software/make/)
 
 ### Build
+
+Run the following from repository root to generate SORACOM provider in `plugins` directory.
 
 ```bash
 make build
@@ -95,20 +96,33 @@ make build
 
 ### Test
 
-#### Custom Provider
-```bash
-# run unit test
-make test
+All the tests are done on GitHub Actions. Please see details here: [.github/workflows/test.yml](.github/workflows/test.yml).
 
-# run all the tests which is the same as the ones CI test does
+#### Provider
+
+To run tasks related to provider, see [Makefile](./Makefile) for details.
+For example, you can run all the tests for provider by the following command.
+
+```bash
 make ci-test
 ```
 
 #### Examples
 
+To run tasks related to HCL examples, see [terraform.mk](./terraform.mk) for details.
+For example, you can run all the tests for examples by the following command.
+
 ```bash
-# run all the tests which is the same as the ones CI test does
-make -f terraform.mk ci-test
+make -f terraform.mk ci-test-examples
+```
+
+#### Documents
+
+To run tasks related to documents, see [terraform.mk](./terraform.mk) for details.
+For example, you can run all the tests for documents by the following command.
+
+```bash
+make -f terraform.mk ci-test-docs
 ```
 
 # References
