@@ -17,24 +17,27 @@ description: |-
 
 ### Required
 
-- **content_type** (String) content_type
-- **credentials_id** (String) credentials_id
-- **destination** (Block List, Min: 1, Max: 1) destination (see [below for nested schema](#nestedblock--destination))
-- **enabled** (Boolean) Flag for the configuration status.
-- **group_id** (String) Target group.
+- `content_type` (String) content_type
+- `credentials_id` (String) credentials_id
+- `destination` (Block List, Min: 1, Max: 1) destination (see [below for nested schema](#nestedblock--destination))
+- `enabled` (Boolean) Flag for the configuration status.
+- `group_id` (String) Target group.
 
 ### Optional
 
-- **add_sim_id** (Boolean) add_sim_id
-- **id** (String) The ID of this resource.
+- `add_sim_id` (Boolean) add_sim_id
+
+### Read-Only
+
+- `id` (String) The ID of this resource.
 
 <a id="nestedblock--destination"></a>
 ### Nested Schema for `destination`
 
 Required:
 
-- **provider** (String) provider
-- **resource_url** (String) resource_url
-- **service** (String) service
+- `provider` (String) provider
+- `resource_url` (String) resource_url
+- `service` (String) service
 
 

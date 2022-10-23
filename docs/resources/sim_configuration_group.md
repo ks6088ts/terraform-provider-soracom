@@ -17,11 +17,11 @@ description: |-
 
 ### Required
 
-- **sim_group_id** (String)
-- **sim_id** (String)
+- `sim_group_id` (String)
+- `sim_id` (String)
 
-### Optional
+### Read-Only
 
-- **id** (String) The ID of this resource.
+- `id` (String) The ID of this resource.
 
 

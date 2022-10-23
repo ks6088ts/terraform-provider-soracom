@@ -17,23 +17,26 @@ description: |-
 
 ### Required
 
-- **group_id** (String)
+- `group_id` (String)
 
 ### Optional
 
-- **dns_servers** (List of String)
-- **id** (String) The ID of this resource.
-- **meta_data** (Block List, Max: 1) (see [below for nested schema](#nestedblock--meta_data))
-- **use_custom_dns** (Boolean)
-- **user_data** (String)
+- `dns_servers` (List of String)
+- `meta_data` (Block List, Max: 1) (see [below for nested schema](#nestedblock--meta_data))
+- `use_custom_dns` (Boolean)
+- `user_data` (String)
+
+### Read-Only
+
+- `id` (String) The ID of this resource.
 
 <a id="nestedblock--meta_data"></a>
 ### Nested Schema for `meta_data`
 
 Optional:
 
-- **allow_origin** (String)
-- **enabled** (Boolean)
-- **read_only** (Boolean)
+- `allow_origin` (String)
+- `enabled` (Boolean)
+- `read_only` (Boolean)
 
 

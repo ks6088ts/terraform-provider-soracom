@@ -17,11 +17,11 @@ description: |-
 
 ### Required
 
-- **sim_id** (String)
-- **tags** (Map of String)
+- `sim_id` (String)
+- `tags` (Map of String)
 
-### Optional
+### Read-Only
 
-- **id** (String) The ID of this resource.
+- `id` (String) The ID of this resource.
 
 
