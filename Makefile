@@ -12,7 +12,7 @@ LDFLAGS ?= '-s -w \
 	-X "github.com/ks6088ts/terraform-provider-soracom/internal.Revision=$(GIT_REVISION)" \
 	-X "github.com/ks6088ts/terraform-provider-soracom/internal.Version=$(GIT_TAG)" \
 '
-PROVIDER_FILE ?= ~/.terraform.d/plugins/ks6088ts/soracom/$(GIT_TAG)/$(GOOS)_$(GOARCH)/terraform-provider-soracom
+PROVIDER_FILE ?= plugins/registry.terraform.io/ks6088ts/soracom/$(GIT_TAG)/$(GOOS)_$(GOARCH)/terraform-provider-soracom
 
 .PHONY: help
 help:

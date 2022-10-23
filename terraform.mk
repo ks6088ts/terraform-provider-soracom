@@ -3,6 +3,7 @@ TERRAFORM_DIR_LIST ?= $(wildcard examples/*)
 TERRAFORM_PLUGIN_DOCS_VERSION ?= 0.13.0
 TERRAFORM ?= cd $(TERRAFORM_DIR) && terraform
 GENERATED_DIR ?= docs
+TERRAFORM_PLUGIN_DIR_OPTION ?= -plugin-dir=../../plugins
 
 .PHONY: help
 help:
@@ -30,7 +31,7 @@ clear:
 
 .PHONY: init
 init:
-	$(TERRAFORM) init
+	$(TERRAFORM) init $(TERRAFORM_PLUGIN_DIR_OPTION)
 
 .PHONY: lint
 lint:
