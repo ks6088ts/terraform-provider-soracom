@@ -17,56 +17,59 @@ description: |-
 
 ### Required
 
-- **action_config_list** (Block Set, Min: 1) (see [below for nested schema](#nestedblock--action_config_list))
-- **name** (String)
-- **rule_config** (Block List, Min: 1, Max: 1) (see [below for nested schema](#nestedblock--rule_config))
-- **status** (String)
+- `action_config_list` (Block Set, Min: 1) (see [below for nested schema](#nestedblock--action_config_list))
+- `name` (String)
+- `rule_config` (Block List, Min: 1, Max: 1) (see [below for nested schema](#nestedblock--rule_config))
+- `status` (String)
 
 ### Optional
 
-- **description** (String)
-- **id** (String) The ID of this resource.
-- **target_group_id** (String)
-- **target_imsi** (String)
-- **target_operator_id** (String)
-- **target_sim_id** (String)
+- `description` (String)
+- `target_group_id` (String)
+- `target_imsi` (String)
+- `target_operator_id` (String)
+- `target_sim_id` (String)
+
+### Read-Only
+
+- `id` (String) The ID of this resource.
 
 <a id="nestedblock--action_config_list"></a>
 ### Nested Schema for `action_config_list`
 
 Required:
 
-- **properties** (Block List, Min: 1, Max: 1) (see [below for nested schema](#nestedblock--action_config_list--properties))
-- **type** (String)
+- `properties` (Block List, Min: 1, Max: 1) (see [below for nested schema](#nestedblock--action_config_list--properties))
+- `type` (String)
 
 <a id="nestedblock--action_config_list--properties"></a>
 ### Nested Schema for `action_config_list.properties`
 
 Required:
 
-- **execution_date_time_const** (String)
+- `execution_date_time_const` (String)
 
 Optional:
 
-- **access_key** (String)
-- **body** (String)
-- **content_type** (String)
-- **endpoint** (String)
-- **execution_offset_minutes** (String)
-- **function_name** (String)
-- **headers** (Map of String)
-- **http_method** (String)
-- **message** (String)
-- **parameter1** (String)
-- **parameter2** (String)
-- **parameter3** (String)
-- **parameter4** (String)
-- **parameter5** (String)
-- **secret_access_key** (String)
-- **speed_class** (String)
-- **title** (String)
-- **to** (String)
-- **url** (String)
+- `access_key` (String)
+- `body` (String)
+- `content_type` (String)
+- `endpoint` (String)
+- `execution_offset_minutes` (String)
+- `function_name` (String)
+- `headers` (Map of String)
+- `http_method` (String)
+- `message` (String)
+- `parameter1` (String)
+- `parameter2` (String)
+- `parameter3` (String)
+- `parameter4` (String)
+- `parameter5` (String)
+- `secret_access_key` (String)
+- `speed_class` (String)
+- `title` (String)
+- `to` (String)
+- `url` (String)
 
 
 
@@ -75,24 +78,24 @@ Optional:
 
 Required:
 
-- **properties** (Block List, Min: 1, Max: 1) (see [below for nested schema](#nestedblock--rule_config--properties))
-- **type** (String)
+- `properties` (Block List, Min: 1, Max: 1) (see [below for nested schema](#nestedblock--rule_config--properties))
+- `type` (String)
 
 <a id="nestedblock--rule_config--properties"></a>
 ### Nested Schema for `rule_config.properties`
 
 Required:
 
-- **inactive_timeout_date_const** (String)
+- `inactive_timeout_date_const` (String)
 
 Optional:
 
-- **inactive_timeout_offset_minutes** (String)
-- **limit_total_amount** (String)
-- **limit_total_traffic_mega_byte** (String)
-- **run_once_among_target** (Boolean)
-- **target_ota_status** (String)
-- **target_speed_class** (String)
-- **target_status** (String)
+- `inactive_timeout_offset_minutes` (String)
+- `limit_total_amount` (String)
+- `limit_total_traffic_mega_byte` (String)
+- `run_once_among_target` (Boolean)
+- `target_ota_status` (String)
+- `target_speed_class` (String)
+- `target_status` (String)
 
 

@@ -17,4 +17,4 @@ description: |-
 
 ### Required
 
-- **profile** (String) SORACOM Profile
+- `profile` (String) SORACOM Profile

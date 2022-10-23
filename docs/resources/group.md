@@ -17,10 +17,10 @@ description: |-
 
 ### Required
 
-- **tags** (Map of String) Tags for group to be created.
+- `tags` (Map of String) Tags for group to be created.
 
-### Optional
+### Read-Only
 
-- **id** (String) The ID of this resource.
+- `id` (String) The ID of this resource.
 
 

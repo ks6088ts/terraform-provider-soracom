@@ -17,13 +17,13 @@ description: |-
 
 ### Required
 
-- **credentials** (Map of String)
-- **credentials_id** (String)
-- **description** (String)
-- **type** (String)
+- `credentials` (Map of String)
+- `credentials_id` (String)
+- `description` (String)
+- `type` (String)
 
-### Optional
+### Read-Only
 
-- **id** (String) The ID of this resource.
+- `id` (String) The ID of this resource.
 
 

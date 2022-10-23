@@ -17,13 +17,13 @@ description: |-
 
 ### Required
 
-- **description** (String)
-- **operator_id** (String)
-- **permission** (String)
-- **role_id** (String)
+- `description` (String)
+- `operator_id` (String)
+- `permission` (String)
+- `role_id` (String)
 
-### Optional
+### Read-Only
 
-- **id** (String) The ID of this resource.
+- `id` (String) The ID of this resource.
 
 

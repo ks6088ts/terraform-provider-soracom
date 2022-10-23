@@ -17,12 +17,12 @@ description: |-
 
 ### Required
 
-- **operator_id** (String)
-- **role_id** (String)
-- **user_name** (String)
+- `operator_id` (String)
+- `role_id` (String)
+- `user_name` (String)
 
-### Optional
+### Read-Only
 
-- **id** (String) The ID of this resource.
+- `id` (String) The ID of this resource.
 
 

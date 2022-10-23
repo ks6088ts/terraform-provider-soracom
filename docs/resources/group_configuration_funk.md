@@ -17,23 +17,23 @@ description: |-
 
 ### Required
 
-- **content_type** (String)
-- **credentials_id** (String)
-- **destination** (Block List, Min: 1, Max: 1) (see [below for nested schema](#nestedblock--destination))
-- **enabled** (Boolean)
-- **group_id** (String)
+- `content_type` (String)
+- `credentials_id` (String)
+- `destination` (Block List, Min: 1, Max: 1) (see [below for nested schema](#nestedblock--destination))
+- `enabled` (Boolean)
+- `group_id` (String)
 
-### Optional
+### Read-Only
 
-- **id** (String) The ID of this resource.
+- `id` (String) The ID of this resource.
 
 <a id="nestedblock--destination"></a>
 ### Nested Schema for `destination`
 
 Required:
 
-- **provider** (String)
-- **resource_url** (String)
-- **service** (String)
+- `provider` (String)
+- `resource_url` (String)
+- `service` (String)
 
 
