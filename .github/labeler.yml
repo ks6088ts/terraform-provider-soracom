@@ -1,0 +1,6 @@
+docs:
+  - docs/**/*
+github:
+  - .github/**/*
+examples:
+  - examples/**/*
