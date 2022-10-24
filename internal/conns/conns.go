@@ -63,12 +63,24 @@ func getProfile(profileName string) (*profile, error) {
 		return nil, err
 	}
 
+	if err := validateProfile(&p); err != nil {
+		return nil, err
+	}
+
 	// supply default values for older versions (which support 'jp' coverage type only)
 	if p.CoverageType == "" {
 		p.CoverageType = "jp"
 	}
 
 	return &p, nil
+}
+
+func validateProfile(p *profile) error {
+	// validation logic: handles authentication methods other than auth key
+	if p.AuthKey == nil || p.AuthKeyId == nil {
+		return fmt.Errorf("authentication by auth key is only supported. please specify AuthKey and AuthKeyId in profile")
+	}
+	return nil
 }
 
 type SoracomClient struct {
