@@ -14,7 +14,7 @@ builds:
   flags:
     - -trimpath
   ldflags:
-    - '-s -w -X main.version={{.Version}} -X main.commit={{.Commit}}'
+    - '-s -w -X github.com/ks6088ts/terraform-provider-soracom/internal.Version={{.Version}} -X github.com/ks6088ts/terraform-provider-soracom/internal.Revision={{.Commit}}'
   goos:
     - freebsd
     - windows
