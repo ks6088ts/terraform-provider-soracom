@@ -113,3 +113,37 @@ func TestGetProfile(t *testing.T) {
 		t.Errorf("failed to get registerPaymentMethod")
 	}
 }
+
+func TestValidateProfile(t *testing.T) {
+	tempAuthKeyId := "authKeyId"
+	tempAuthKey := "authKey"
+
+	testCases := []struct {
+		name     string
+		profile  profile
+		hasError bool
+	}{
+		{
+			name: "nominal scenarios with authKey specified in profile",
+			profile: profile{
+				AuthKeyId: &tempAuthKeyId,
+				AuthKey:   &tempAuthKey,
+			},
+			hasError: false,
+		},
+		{
+			name:     "non-nominal scenarios without authKey in profile",
+			profile:  profile{},
+			hasError: true,
+		},
+	}
+
+	for _, testCase := range testCases {
+		t.Run(testCase.name, func(t *testing.T) {
+			err := validateProfile(&testCase.profile)
+			if hasError := (err != nil); hasError != testCase.hasError {
+				t.Errorf("got %v, expected %v, err %v", hasError, testCase.hasError, err)
+			}
+		})
+	}
+}
