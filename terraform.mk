@@ -1,5 +1,6 @@
 TERRAFORM_DIR ?= $(PWD)
-TERRAFORM_DIR_LIST ?= $(wildcard examples/*)
+# FIXME
+TERRAFORM_DIR_LIST ?= $(filter-out examples/group_configuration_funk_azure_functions_js ,$(wildcard examples/*))
 TERRAFORM_PLUGIN_DOCS_VERSION ?= 0.13.0
 TERRAFORM ?= cd $(TERRAFORM_DIR) && terraform
 GENERATED_DIR ?= docs
