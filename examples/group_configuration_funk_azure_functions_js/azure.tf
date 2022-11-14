@@ -75,4 +75,8 @@ resource "azurerm_function_app_function" "example" {
 data "azurerm_function_app_host_keys" "example" {
   name                = "${var.azure_prefix}exampleapp"
   resource_group_name = azurerm_resource_group.example.name
+  # https://github.com/hashicorp/terraform-provider-azurerm/issues/9869
+  depends_on = [
+    azurerm_linux_function_app.example
+  ]
 }
