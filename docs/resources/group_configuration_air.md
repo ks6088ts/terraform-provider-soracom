@@ -25,6 +25,8 @@ description: |-
 - `meta_data` (Block List, Max: 1) (see [below for nested schema](#nestedblock--meta_data))
 - `use_custom_dns` (Boolean)
 - `user_data` (String)
+- `binary_parser_enabled` (Boolean)
+- `binary_parser_format` (String)
 
 ### Read-Only
 

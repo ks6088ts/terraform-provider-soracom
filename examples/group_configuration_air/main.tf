@@ -29,4 +29,6 @@ resource "soracom_group_configuration_air" "group_configuration_air" {
     allow_origin = "http://some.example.com"
   }
   user_data = "foobar"
+  binary_parser_enabled = true
+  binary_parser_format = "frameType:0:uint:1:big-endian:7 batLow:0:bool:6 boot:0:bool:5 coSensor:0:bool:4 temp:0:int:12:big-endian:3 hygro:2:uint:8 co:3:uint:8"
 }

@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.24.0
 	github.com/ks6088ts/soracom-sdk-go v0.0.3
-	github.com/soracom/soracom-sdk-go v0.1.0
+	github.com/soracom/soracom-sdk-go v0.1.1-0.20221108005606-229c35a0e8ca
 )
 
 require (
