@@ -58,6 +58,14 @@ func ResourceGroupConfigurationAir() *schema.Resource {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
+			"binary_parser_enabled": {
+				Type:     schema.TypeBool,
+				Optional: true,
+			},
+			"binary_parser_format": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
 		},
 	}
 }
@@ -78,6 +86,8 @@ func resourceGroupConfigurationAirCreate(ctx context.Context, d *schema.Resource
 	metaDataReadOnly := metaData["read_only"].(bool)
 	metaDataAllowOrigin := metaData["allow_origin"].(string)
 	userData := d.Get("user_data").(string)
+	binaryParserEnabled := d.Get("binary_parser_enabled").(bool)
+	binaryParserFormat := d.Get("binary_parser_format").(string)
 	airConfig1 := &sdk.AirConfig{
 		UseCustomDNS: useCustomDns,
 		DNSServers:   dnsServers,
@@ -86,7 +96,9 @@ func resourceGroupConfigurationAirCreate(ctx context.Context, d *schema.Resource
 			ReadOnly:    metaDataReadOnly,
 			AllowOrigin: metaDataAllowOrigin,
 		},
-		UserData: userData,
+		UserData:            userData,
+		BinaryParserEnabled: binaryParserEnabled,
+		BinaryParserFormat:  binaryParserFormat,
 	}
 	ac := sdk.NewAPIClient(nil)
 	ac.APIKey = *meta.(*conns.SoracomClient).AuthResponse.ApiKey
