@@ -32,7 +32,7 @@ jobs:
           SORACOM_AUTH_KEY: ${{ secrets.SORACOM_AUTH_KEY }}
           SORACOM_AUTH_KEY_ID: ${{ secrets.SORACOM_AUTH_KEY_ID }}
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
+        uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: ${{ matrix.terraform-version }}
           terraform_wrapper: false
